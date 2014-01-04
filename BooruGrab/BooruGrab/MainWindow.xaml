@@ -1,0 +1,63 @@
+﻿<Window x:Name="Window" x:Class="Scarlett.Danbooru.Boorugrab.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BooruGrab" Height="310" Width="260"
+        AllowsTransparency="True" Background="White" 
+	    ResizeMode="CanResizeWithGrip"
+	    WindowStyle="None" Closed="Window_Closed" MinWidth="260" MinHeight="310" MaxHeight="310" MaxWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label x:Name="TitleLabel" Content="boorugrab" Margin="0,0,0,0" Foreground="White" Background="#FF2174AE" FontSize="48" IsHitTestVisible="True" VerticalContentAlignment="Center" Padding="15,10,15,15" MouseLeftButtonDown="Title_MouseLeftButtonDown" />
+        <Label Content="by scarlett`" Foreground="#9E0707" Padding="175,70,0,0" IsHitTestVisible="False"/>
+        <Button x:Name="CloseButton" IsHitTestVisible="True" Height="16" VerticalAlignment="Top" HorizontalAlignment="Right" Width="34" Click="CloseButton_Click" IsTabStop="False">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Label Content="X" Foreground="White" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                        <Label.Style>
+                            <Style TargetType="{x:Type Label}">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#9E0707"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="False">
+                                        <Setter Property="Background" Value="#CC630505"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Label.Style>
+                    </Label>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Grid x:Name="ControlGrid" Margin="0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="34"/>
+                <RowDefinition Height="34"/>
+                <RowDefinition Height="34"/>
+                <RowDefinition Height="34"/>
+                <RowDefinition/>
+                <RowDefinition Height="24"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="92"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="DestinationField" Margin="10,10,18,0" Text="{Binding Source={StaticResource Settings}, Path=Default.Destination}" Grid.Column="1" Height="23" VerticalAlignment="Top" TabIndex="1"/>
+            <TextBlock Margin="18,11,0,0" TextWrapping="Wrap" Text="Destination" VerticalAlignment="Top" Height="16" Foreground="Black"/>
+            <TextBox x:Name="UsernameField" Margin="10,9,18,0" Text="{Binding Source={StaticResource Settings}, Path=Default.Username}" Height="23" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" TabIndex="2"/>
+            <TextBlock Margin="18,10,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Height="16" Foreground="Black" Grid.Row="1"/>
+            <TextBox x:Name="KeyField" Margin="10,9,18,0" Text="{Binding Source={StaticResource Settings}, Path=Default.ApiKey}" Height="23" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" TabIndex="3"/>
+            <TextBlock Margin="18,10,0,0" TextWrapping="Wrap" Text="API Key" VerticalAlignment="Top" Height="16" Foreground="Black" Grid.Row="2"/>
+            <TextBox x:Name="TagField" Margin="10,9,18,0" Text="" Height="23" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" TabIndex="4"/>
+            <TextBlock Margin="18,10,0,0" TextWrapping="Wrap" Text="Tag String" VerticalAlignment="Top" Height="16" Foreground="Black" Grid.Row="3"/>
+            <StatusBar x:Name="StatusBar" Grid.Row="5" Grid.ColumnSpan="2">
+                <TextBlock x:Name="StatusBlock" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="18,0,0,0" Text="" />
+            </StatusBar>
+            <Button x:Name="StartButton" Content="Start" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,18,16" Grid.Row="4" VerticalAlignment="Bottom" Width="75" Click="StartButton_Click" TabIndex="5" IsDefault="True"/>
+        </Grid>
+
+    </Grid>
+</Window>
