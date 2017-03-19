@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="BooruGrab" Height="310" Width="260"
         AllowsTransparency="True" Background="White" 
-	    ResizeMode="CanResizeWithGrip"
-	    WindowStyle="None" Closed="Window_Closed" MinWidth="260" MinHeight="310" MaxHeight="310" MaxWidth="400">
+        ResizeMode="CanResizeWithGrip"
+        WindowStyle="None" Closed="Window_Closed" MinWidth="260" MinHeight="310" MaxHeight="310" MaxWidth="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>

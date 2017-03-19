@@ -18,7 +18,7 @@ namespace Scarlett.Danbooru.Boorugrab.Engine
         Slave slave;
         LinkedList<Post> posts = new LinkedList<Post>();
 
-		public Manager(string username, string apiKey)
+        public Manager(string username, string apiKey)
         {
             slave = new Slave(username, apiKey);
             slave.UserThrottled += () =>
@@ -45,7 +45,7 @@ namespace Scarlett.Danbooru.Boorugrab.Engine
                 RunInBackground((s, e) => DownloadLoop(saveFolder, tagString));
             else
                 throw new ArgumentException("Directory does not exist");
-		}
+        }
 
         private async Task DownloadLoop(string saveFolder, string tagString)
         {
